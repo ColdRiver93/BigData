@@ -1,0 +1,29 @@
+---- REQUERIMIENTOS ----
+
+- Carpeta de archivos(Sera proporcionada)
+- Pgadmin4
+- Anaconda (opcional)
+- Un ambiente con las librerias:
+	tensorflow
+	pandas
+	numpy
+	matplotlib
+	seaborn
+- jdk
+- Hadoop
+
+- Permisos para crear archivos desde pgadmin
+- Permisos para copiar archivos en C:
+
+---- TUTORIALES ----
+
+Hadoop(jdk tambien)
+Si el video de ingles no funciona por alguna razon hacer el procedimiento del Hindi
+con el mismo entendimiento del de ingles
+
+Texto:
+Ingles -> https://github.com/MuhammadBilalYar/Hadoop-On-Window/wiki/Step-by-step-Hadoop-2.8.0-installation-on-Window-10
+
+Videos:
+Ingles -> https://www.youtube.com/watch?v=vLVWrGGqGJU
+Hindi(Ver primero ingles) -> https://www.youtube.com/watch?v=NI_QkJROUcw

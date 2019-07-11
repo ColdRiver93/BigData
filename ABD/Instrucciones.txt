@@ -1,0 +1,49 @@
+---- PARTE SQL ----
+
+Abrir pgadmin4
+
+Abrir anaconda
+
+Abrir querytool en pgadmin4
+
+Abrir archivo pgsql_code.sql
+
+Ejecutar sentencias SQL hasta crear el csv
+
+Modificar archivo python**
+
+Abrir ambiente con tf en anaconda
+	cd C:\Users\Juan Riofrio\Desktop\ABD
+	python tf_naci.py
+
+
+---- PARTE HADOOP ----
+
+Borrar la informacion de carpetas dataname y nodename
+Copiar los archivos input_file y MapReduceClient en C:
+
+cmd as administrator
+	cd..
+	cd..
+	cd hadoop-2.7.7
+	cd sbin
+
+	hdfs namenode -format
+	start-dfs.cmd
+	start-yarn.cmd
+
+En el explorador buscar:
+localhost:8088
+localhost:50070
+
+Nuevamente en cmd
+	hadoop fs -mkdir /input_dir
+	hadoop fs -put C:/input_file.txt /input_dir
+	hadoop dfs -cat /input_dir/input_file.txt
+
+	hadoop jar C:/MapReduceClient.jar wordcount /input_dir /output_dir
+	hadoop dfs -cat /output_dir/*
+
+	stop-dfs.cmd
+	stop-yarn.cmd
+	exit
