@@ -11,12 +11,14 @@ create table bd1 (prov_insc varchar,cant_insc varchar,parr_insc varchar,
 				  con_pren varchar,num_emb varchar,num_par varchar,hij_viv varchar,hij_vivm varchar,
 				  hij_nacm varchar,etnia varchar,est_civil varchar,niv_inst varchar,sabe_leer varchar,
 				  prov_res varchar,cant_res varchar,parr_res varchar,area_res varchar,residente varchar);
-
+				  
+--33 secs 377 msec.
 COPY bd1 FROM 'C:\Users\Juan Riofrio\Desktop\ABD\Datos_abiertos_ENV_2017\ENV_2017.csv'
 DELIMITERS ',' CSV header encoding 'windows-1251';
 
-select * from bd1 where random() < 0.01 limit 10;
 select count(*) from bd1;
+select * from bd1 where random() < 0.01 limit 10;
+
 
 select sexo, talla, peso, sem_gest, tipo_part, edad_mad from bd1
 where sexo != 'Sin informaciуn' and talla  != 'Sin informaciуn' and
@@ -27,8 +29,8 @@ create table bd2 as select sexo, talla, peso, sem_gest, tipo_part, edad_mad from
 where sexo != 'Sin informaciуn' and talla  != 'Sin informaciуn' and peso != 'Sin informaciуn'and
       sem_gest != 'Sin informaciуn' and tipo_part != 'Sin informaciуn' and edad_mad != 'Sin informaciуn';
 
-select * from bd2 where random() < 0.01 limit 10;
 select count(*) from bd2;
+select * from bd2 where random() < 0.01 limit 10;
 
 update bd2 set tipo_part = 0 where tipo_part = 'Normal';
 update bd2 set tipo_part = 1 where tipo_part = 'Cesбrea';
@@ -38,7 +40,9 @@ update bd2 set sexo = 0 where sexo = 'Hombre';
 update bd2 set sexo = 1 where sexo = 'Mujer';
 select * from bd2 where sexo != '0' and sexo != '1';
 
-select * from bd2 where random() < 0.01 limit 100;
+select * from bd2 where random() < 1000 limit 100;
 select * from bd2 where peso::integer <600;
+select * from bd2 where sexo = '1';
+select * from bd2 where tipo_part='1' and sexo = '1';
 
 COPY bd2 TO 'C:\Users\Juan Riofrio\Desktop\ABD\Datos_abiertos_ENV_2017\clean_data.csv' DELIMITER ',' CSV HEADER;
