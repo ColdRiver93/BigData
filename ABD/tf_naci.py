@@ -1,7 +1,10 @@
-#https://www.tensorflow.org/tutorials/keras/basic_regression
+# ----> Creado por Juan Riofrio
+# ----> Entrenamiento de una red neuronal de tensorflow
+# ----> Datos de nacimientos en Ecuador 2017
+# ----> Prediccion de pesos de los nacidos de acuerdo a (sexo, talla, sem_gest tipo_part, edad_mad)
 
-from __future__ import absolute_import, division, print_function
-import pathlib
+
+#Librerias
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
@@ -10,9 +13,9 @@ from tensorflow import keras
 from tensorflow.keras import layers
 
 
+#Funciones
 def norm(x): #Normalizar
   return (x - train_stats['mean']) / train_stats['std']
-
 
 def build_model(): #Crear modelo(red neuronal)
   model = keras.Sequential([
@@ -27,7 +30,6 @@ def build_model(): #Crear modelo(red neuronal)
                 metrics=['mae', 'mse', 'mape'])
   return model
 
-
 #Mostrar avance del entrenamiento
 class av_puntos(keras.callbacks.Callback):
   def on_epoch_end(self, epoch, logs):
@@ -36,6 +38,7 @@ class av_puntos(keras.callbacks.Callback):
 
 
 #Importar data
+##          ---MODIFICAR----
 data = pd.read_csv(r'C:\Users\Juan Riofrio\Desktop\ABD\Datos_abiertos_ENV_2017\clean_data.csv', header=0)
 naci_data1= data.copy()
 
@@ -89,6 +92,9 @@ plt.show()
 plt.hist(dataset['edad_mad'], bins = 25)
 plt.xlabel("Edad madre")
 _ = plt.ylabel("Count")
+plt.show()
+
+sns.pairplot(dataset, diag_kind='kde',kind='reg', height = 3)
 plt.show()
 
 
